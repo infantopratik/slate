@@ -73,3 +73,42 @@ This end point returns all the budget types for the campus.
 Parameter | Optional | Description
 --------- | -------- | -----------
 involv_token | no | Involvio access token
+
+## List of budget periods
+
+```shell
+curl -X GET "http://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token"
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_periods": [
+    {
+      "id": 1,
+      "name": "Winter Budget",
+      "start_date": "2019-03-01",
+      "end_date": "2019-07-01"
+    },
+    {
+      "id": 2,
+      "name": "Fall Budget",
+      "start_date": "2019-08-01",
+      "end_date": "2019-12-01"
+    },
+  ]
+}
+```
+
+This end point returns all the budget periods for the campus.
+
+### HTTP Request
+
+`GET http://test.involvio.com/api/v20/budget_periods.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
