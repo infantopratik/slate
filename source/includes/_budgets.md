@@ -147,3 +147,39 @@ This end point returns all the budget categories for the campus.
 Parameter | Optional | Description
 --------- | -------- | -----------
 involv_token | no | Involvio access token
+
+## List of line item types
+
+```shell
+curl -X GET "http://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token"
+```
+
+> Sample JSON response:
+
+```json
+{
+  "line_item_types": [
+    {
+      "id": 1,
+      "name": "Plane Tickets",
+    },
+    {
+      "id": 2,
+      "name": "Cab",
+    },
+  ]
+}
+```
+
+This end point returns all the line item types for a particular budget category.
+
+### HTTP Request
+
+`GET http://test.involvio.com/api/v20/budget_categories/:budget_category_id/line_item_types.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
+budget_category_id | no | Budget category id for which the line item types need to fetched
