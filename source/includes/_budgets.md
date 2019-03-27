@@ -183,3 +183,37 @@ Parameter | Optional | Description
 --------- | -------- | -----------
 involv_token | no | Involvio access token
 budget_category_id | no | Budget category id for which the line item types need to fetched
+
+## Show budget
+
+```shell
+curl -X GET "http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token"
+```
+
+> Sample JSON response:
+
+```json
+{
+  "id": 1,
+  "name": "Chess Funds",
+  "budget_period": {
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "ref_no": "REF-1",
+  "status": "approved"
+}
+```
+
+This end point returns all the information for the budget.
+
+### HTTP Request
+
+`GET http://test.involvio.com/api/v20/budgets/:budget_id.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
+budget_id | no | Budget id for which the information needs to be fetched
