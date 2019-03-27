@@ -31,11 +31,11 @@ This end point returns all the budgets for the campus.
 
 `GET http://test.involvio.com/api/v20/budgets.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
+involv_token | yes | Involvio access token
 status | yes | Filter by budget status
 budget_period_id | yes | Filter by budget period
 
@@ -68,11 +68,11 @@ This end point returns all the budget types for the campus.
 
 `GET http://test.involvio.com/api/v20/budget_types.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
+involv_token | yes | Involvio access token
 
 ## List of budget periods
 
@@ -107,11 +107,11 @@ This end point returns all the budget periods for the campus.
 
 `GET http://test.involvio.com/api/v20/budget_periods.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
+involv_token | yes | Involvio access token
 
 ## List of budget categories
 
@@ -142,11 +142,11 @@ This end point returns all the budget categories for the campus.
 
 `GET http://test.involvio.com/api/v20/budget_categories.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
+involv_token | yes | Involvio access token
 
 ## List of line item types
 
@@ -177,12 +177,12 @@ This end point returns all the line item types for a particular budget category.
 
 `GET http://test.involvio.com/api/v20/budget_categories/:budget_category_id/line_item_types.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
-budget_category_id | no | Budget category id for which the line item types need to fetched
+involv_token | yes | Involvio access token
+budget_category_id | yes | Budget category id for which the line item types need to fetched
 
 ## Show budget
 
@@ -211,12 +211,12 @@ This end point returns all the information for the budget.
 
 `GET http://test.involvio.com/api/v20/budgets/:budget_id.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
-budget_id | no | Budget id for which the information needs to be fetched
+involv_token | yes | Involvio access token
+budget_id | yes | Budget id for which the information needs to be fetched
 
 ## Delete budget
 
@@ -230,12 +230,12 @@ This end point deletes the budget.
 
 `DELETE http://test.involvio.com/api/v20/budgets/:budget_id.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
-budget_id | no | Identifier of the budget which needs to be deleted
+involv_token | yes | Involvio access token
+budget_id | yes | Identifier of the budget which needs to be deleted
 
 ### Status Codes
 Status Code | Description
@@ -293,15 +293,15 @@ This end point creates a line item for a particular budget item.
 
 `POST http://test.involvio.com/api/v20/budget_items/:budget_item_id/line_item.json`
 
-### Query Parameters
+### Parameters
 
-Parameter | Optional | Description
+Parameter | Required | Description
 --------- | -------- | -----------
-involv_token | no | Involvio access token
-description | no | Description of the line item
-amount | no | Amount to be budgeted for this line item
-budget_item_id | no | Identifier of the budget item for which the line item has to be created
-line_item_type_id | no | Identifier of the line type for which the line item has to be created
+involv_token | yes | Involvio access token
+description | yes | Description of the line item
+amount | yes | Amount to be budgeted for this line item
+budget_item_id | yes | Identifier of the budget item for which the line item has to be created
+line_item_type_id | yes | Identifier of the line type for which the line item has to be created
 
 ### Status Codes
 Status Code | Description
