@@ -3,7 +3,7 @@
 ## List of budgets
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budgets.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budgets.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -42,7 +42,7 @@ budget_period_id | yes | Filter by budget period
 ## List of budget types
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -77,7 +77,7 @@ involv_token | no | Involvio access token
 ## List of budget periods
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -116,7 +116,7 @@ involv_token | no | Involvio access token
 ## List of budget categories
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -151,7 +151,7 @@ involv_token | no | Involvio access token
 ## List of line item types
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -187,7 +187,7 @@ budget_category_id | no | Budget category id for which the line item types need 
 ## Show budget
 
 ```shell
-curl -X GET "http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token"
+curl -X GET 'http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -221,7 +221,7 @@ budget_id | no | Budget id for which the information needs to be fetched
 ## Delete budget
 
 ```shell
-curl -X DELETE "http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token"
+curl -X DELETE 'http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
@@ -242,3 +242,70 @@ Status Code | Description
 ----------- | -----------
 204 | When the budget is successfully deleted
 404 | When the budget with the budget_id is not found
+
+## Create Line Item
+
+```shell
+curl -X POST \
+'http://test.involvio.com/api/v20/budget_items/1/line_items?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "line_item": {
+      "description": "Office to Airport",
+      "amount": 100,
+      "budget_item_id": 1,
+      "line_item_type_id": 1
+  }
+}'
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "description": "Office to Airport",
+  "amount": 100,
+  "budget_item_id": 1,
+  "line_item_type_id": 1
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Amount cannot be greater than $1000."
+}
+```
+
+This end point creates a line item for a particular budget item.
+
+### HTTP Request
+
+`POST http://test.involvio.com/api/v20/budget_items/:budget_item_id/line_item.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
+description | no | Description of the line item
+amount | no | Amount to be budgeted for this line item
+budget_item_id | no | Identifier of the budget item for which the line item has to be created
+line_item_type_id | no | Identifier of the line type for which the line item has to be created
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+201 | When the line item is successfully created
+400 | When the required parameters are not sent
+422 | When there are errors while creating the record(Mostly validation errors)
