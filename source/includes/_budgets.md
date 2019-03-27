@@ -217,3 +217,28 @@ Parameter | Optional | Description
 --------- | -------- | -----------
 involv_token | no | Involvio access token
 budget_id | no | Budget id for which the information needs to be fetched
+
+## Delete budget
+
+```shell
+curl -X DELETE "http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token"
+```
+
+This end point deletes the budget.
+
+### HTTP Request
+
+`DELETE http://test.involvio.com/api/v20/budgets/:budget_id.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
+budget_id | no | Identifier of the budget which needs to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the budget is successfully deleted
+404 | When the budget with the budget_id is not found
