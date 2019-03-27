@@ -6,7 +6,7 @@
 curl -X GET "http://test.involvio.com/api/v20/budgets.json?involv_token=example_involvio_token"
 ```
 
-> The above command returns JSON structured like this:
+> Sample JSON response:
 
 ```json
 {
