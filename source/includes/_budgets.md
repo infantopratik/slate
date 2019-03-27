@@ -112,3 +112,38 @@ This end point returns all the budget periods for the campus.
 Parameter | Optional | Description
 --------- | -------- | -----------
 involv_token | no | Involvio access token
+
+## List of budget categories
+
+```shell
+curl -X GET "http://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token"
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_categories": [
+    {
+      "id": 1,
+      "name": "Travel",
+    },
+    {
+      "id": 2,
+      "name": "Education",
+    },
+  ]
+}
+```
+
+This end point returns all the budget categories for the campus.
+
+### HTTP Request
+
+`GET http://test.involvio.com/api/v20/budget_categories.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
