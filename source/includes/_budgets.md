@@ -1,6 +1,6 @@
 # Budgets
 
-## List all budgets
+## List of budgets
 
 ```shell
 curl -X GET "http://test.involvio.com/api/v20/budgets.json?involv_token=example_involvio_token"
@@ -38,3 +38,38 @@ Parameter | Optional | Description
 involv_token | no | Involvio access token
 status | yes | Filter by budget status
 budget_period_id | yes | Filter by budget period
+
+## List of budget types
+
+```shell
+curl -X GET "http://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token"
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_types": [
+    {
+      "id": 1,
+      "name": "Athletics Special Allocation"
+    },
+    {
+      "id": 2,
+      "name": "Greek Special Allocation"
+     }
+  ]
+}
+```
+
+This end point returns all the budget types for the campus.
+
+### HTTP Request
+
+`GET http://test.involvio.com/api/v20/budget_types.json`
+
+### Query Parameters
+
+Parameter | Optional | Description
+--------- | -------- | -----------
+involv_token | no | Involvio access token
