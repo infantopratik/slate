@@ -3,7 +3,7 @@
 ## List of budgets
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/groups/1/budgets.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -46,7 +46,7 @@ budget_period_id | no | Filter by budget period
 ## List of budget types
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -81,7 +81,7 @@ involv_token | yes | Involvio access token
 ## List of budget periods
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -120,7 +120,7 @@ involv_token | yes | Involvio access token
 ## List of budget categories
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -155,7 +155,7 @@ involv_token | yes | Involvio access token
 ## List of line item types
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -191,7 +191,7 @@ budget_category_id | yes | Budget category id for which the line item types need
 ## Show budget
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -229,7 +229,7 @@ budget_id | yes | Budget id for which the information needs to be fetched
 ## Delete budget
 
 ```shell
-curl -X DELETE 'http://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
+curl -X DELETE 'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
@@ -256,7 +256,7 @@ Status Code | Description
 
 ```shell
 curl -X POST \
-'http://test.involvio.com/api/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
+'https://test.involvio.com/api/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "line_item": {
@@ -324,7 +324,7 @@ Status Code | Description
 
 ```shell
 curl -X DELETE \
-'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes a line item.
@@ -353,7 +353,7 @@ Status Code | Description
 
 ```shell
 curl -X POST \
-'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "budget_item": {
@@ -415,7 +415,7 @@ Status Code | Description
 
 ```shell
 curl -X DELETE \
-'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
