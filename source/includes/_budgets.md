@@ -36,8 +36,8 @@ This end point returns all the budgets for the campus.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
-status | yes | Filter by budget status
-budget_period_id | yes | Filter by budget period
+status | no | Filter by budget status
+budget_period_id | no | Filter by budget period
 
 ## List of budget types
 
