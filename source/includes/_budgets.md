@@ -32,7 +32,7 @@ This end point returns all the budgets for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/groups/:group_id/budgets.json`
+`GET {{host}}/api/v20/groups/:group_id/budgets.json`
 
 ### Parameters
 
@@ -70,7 +70,7 @@ This end point returns all the budget types for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/budget_types.json`
+`GET {{host}}/api/v20/budget_types.json`
 
 ### Parameters
 
@@ -109,7 +109,7 @@ This end point returns all the budget periods for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/budget_periods.json`
+`GET {{host}}/api/v20/budget_periods.json`
 
 ### Parameters
 
@@ -144,7 +144,7 @@ This end point returns all the budget categories for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/budget_categories.json`
+`GET {{host}}/api/v20/budget_categories.json`
 
 ### Parameters
 
@@ -179,7 +179,7 @@ This end point returns all the line item types for a particular budget category.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/budget_categories/:budget_category_id/line_item_types.json`
+`GET {{host}}/api/v20/budget_categories/:budget_category_id/line_item_types.json`
 
 ### Parameters
 
@@ -216,7 +216,7 @@ This end point returns all the information for the budget.
 
 ### HTTP Request
 
-`GET {{host}}/api/{{version}}/groups/:group_id/budgets/:budget_id.json`
+`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
 
 ### Parameters
 
@@ -236,7 +236,7 @@ This end point deletes the budget.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/{{version}}/groups/:group_id/budgets/:budget_id.json`
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
 
 ### Parameters
 
@@ -300,7 +300,7 @@ This end point creates a line item for a particular budget item.
 
 ### HTTP Request
 
-`POST {{host}}/api/{{version}}/groups/:group_id/budget_items/:budget_item_id/line_item.json`
+`POST {{host}}/api/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
 
 ### Parameters
 
@@ -331,7 +331,7 @@ This end point deletes a line item.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/{{version}}/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
 
 ### Parameters
 
@@ -392,7 +392,7 @@ This end point creates a budget item for a particular budget.
 
 ### HTTP Request
 
-`POST {{host}}/api/{{version}}/groups/:group_id/budgets/:budget_id/budget_items`
+`POST {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items`
 
 ### Parameters
 
@@ -422,7 +422,7 @@ This end point deletes the budget.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/{{version}}/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
 
 ### Parameters
 
