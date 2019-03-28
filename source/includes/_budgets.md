@@ -19,7 +19,10 @@ curl -X GET 'http://test.involvio.com/api/v20/groups/1/budgets.json?involv_token
         "end_date": "2019-12-01"
       },
       "ref_no": "REF-1",
-      "status": "approved"
+      "status": "approved",
+      "approved_amount": "1000",
+      "spent_amount": "200",
+      "remaining_amount": "800"
     }
   ]
 }
@@ -203,6 +206,9 @@ curl -X GET 'http://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_tok
   },
   "ref_no": "REF-1",
   "status": "approved"
+  "approved_amount": "1000",
+  "spent_amount": "200",
+  "remaining_amount": "800"
 }
 ```
 
