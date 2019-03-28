@@ -383,6 +383,43 @@ involv_token | yes | Involvio access token
 
 # Budget Items
 
+## Get budget items
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_items": [
+    {
+      "id": 1,
+      "name": "Travel Expenses"
+    },
+    {
+      "id": 2,
+      "name": "Food Expenses"
+    }
+  ]
+}
+```
+
+This end point returns all the budget items for a particular budget.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group to which the budget belongs
+budget_id | yes | Identifier of the budget for which the budget items to be fetched
+
 ## Create Budget Item
 
 ```shell
@@ -511,6 +548,43 @@ Parameter | Required | Description
 involv_token | yes | Involvio access token
 
 # Line Items
+
+## Get line items
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "line_items": [
+    {
+      "id": 1,
+      "description": "Office to Airport",
+      "amount": 100,
+      "budget_item_id": 1,
+      "line_item_type_id": 1
+    }
+  ]
+}
+```
+
+This end point returns all the line items for a particular budget item.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group to which the budget belongs
+budget_id | yes | Identifier of the budget for which the budget items to be fetched
+budget_item_id | yes | Identifier of the group for which the line items needs to be fetched
 
 ## Create Line Item
 
