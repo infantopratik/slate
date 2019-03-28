@@ -60,7 +60,7 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_to
     "end_date": "2019-12-01"
   },
   "ref_no": "REF-1",
-  "status": "approved"
+  "status": "approved",
   "approved_amount": "1000",
   "spent_amount": "200",
   "remaining_amount": "800"
@@ -364,7 +364,7 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=
       "name": "Fall Budget",
       "start_date": "2019-08-01",
       "end_date": "2019-12-01"
-    },
+    }
   ]
 }
 ```
@@ -402,7 +402,7 @@ curl -X POST \
 ```json
 {
   "id": 1,
-  "name": "Travel Expenses",
+  "name": "Travel Expenses"
 }
 ```
 
@@ -488,12 +488,12 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_tok
   "budget_categories": [
     {
       "id": 1,
-      "name": "Travel",
+      "name": "Travel"
     },
     {
       "id": 2,
-      "name": "Education",
-    },
+      "name": "Education"
+    }
   ]
 }
 ```
@@ -624,12 +624,12 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_categories/1/line_item_typ
   "line_item_types": [
     {
       "id": 1,
-      "name": "Plane Tickets",
+      "name": "Plane Tickets"
     },
     {
       "id": 2,
-      "name": "Cab",
-    },
+      "name": "Cab"
+    }
   ]
 }
 ```
