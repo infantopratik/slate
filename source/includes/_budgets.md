@@ -223,7 +223,7 @@ budget_id | yes | Budget id for which the information needs to be fetched
 ## Delete budget
 
 ```shell
-curl -X DELETE 'http://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_token=example_involvio_token'
+curl -X DELETE 'http://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
@@ -314,6 +314,35 @@ Status Code | Description
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
 
+## Delete Line Item
+
+```shell
+curl -X DELETE \
+'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
+```
+
+This end point deletes a line item.
+
+### HTTP Request
+
+`DELETE http://test.involvio.com/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the the line item belongs
+budget_id | yes | Identifier of the budget for which the the line item belongs
+budget_item_id | yes | Identifier of the budget item for which the the line item belongs
+line_item_id | yes | Identifier of the line item which needs to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the line item is successfully deleted
+404 | When the line item with the line_item_id is not found
+
 ## Create Budget Item
 
 ```shell
@@ -375,3 +404,31 @@ Status Code | Description
 201 | When the budget item is successfully created
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
+
+## Delete Budget Item
+
+```shell
+curl -X DELETE \
+'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
+```
+
+This end point deletes the budget.
+
+### HTTP Request
+
+`DELETE http://test.involvio.com/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budget item belongs to
+budget_id | yes | Identifier of the budget for which the budget item belongs to
+budget_item_id | yes | Identifier of the budget item to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the budget item is successfully deleted
+404 | When the budget item with the budget_item_id is not found
