@@ -3,7 +3,7 @@
 ## List of budgets
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budgets.json?involv_token=example_involvio_token'
+curl -X GET 'http://test.involvio.com/api/v20/groups/:group_id/budgets.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -36,6 +36,7 @@ This end point returns all the budgets for the campus.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
 status | no | Filter by budget status
 budget_period_id | no | Filter by budget period
 
@@ -187,7 +188,7 @@ budget_category_id | yes | Budget category id for which the line item types need
 ## Show budget
 
 ```shell
-curl -X GET 'http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token'
+curl -X GET 'http://test.involvio.com/api/v20/groups/:group_id/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -216,12 +217,13 @@ This end point returns all the information for the budget.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
 budget_id | yes | Budget id for which the information needs to be fetched
 
 ## Delete budget
 
 ```shell
-curl -X DELETE 'http://test.involvio.com/api/v20/budgets/1.json?involv_token=example_involvio_token'
+curl -X DELETE 'http://test.involvio.com/api/v20/groups/:group_id/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
@@ -235,6 +237,7 @@ This end point deletes the budget.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
 budget_id | yes | Identifier of the budget which needs to be deleted
 
 ### Status Codes
@@ -247,7 +250,7 @@ Status Code | Description
 
 ```shell
 curl -X POST \
-'http://test.involvio.com/api/v20/budget_items/1/line_items?involv_token=example_involvio_token' \
+'http://test.involvio.com/api/v20/groups/:group_id/budget_items/1/line_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "line_item": {
@@ -298,6 +301,7 @@ This end point creates a line item for a particular budget item.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
 description | yes | Description of the line item
 amount | yes | Amount to be budgeted for this line item
 budget_item_id | yes | Identifier of the budget item for which the line item has to be created
