@@ -525,11 +525,31 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_tok
   "budget_categories": [
     {
       "id": 1,
-      "name": "Travel"
+      "name": "Travel",
+      "line_item_types": [
+        {
+          "id": 1,
+          "name": "Plane Tickets"
+        },
+        {
+          "id": 2,
+          "name": "Cab"
+        }
+      ]
     },
     {
       "id": 2,
-      "name": "Education"
+      "name": "Education",
+      "line_item_types": [
+        {
+          "id": 1,
+          "name": "Plane Tickets"
+        },
+        {
+          "id": 2,
+          "name": "Cab"
+        }
+      ]
     }
   ]
 }
@@ -682,41 +702,3 @@ Status Code | Description
 ----------- | -----------
 204 | When the line item is successfully deleted
 404 | When the line item with the line_item_id is not found
-
-# Line Item Types
-
-## Get line item types
-
-```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
-```
-
-> Sample JSON response:
-
-```json
-{
-  "line_item_types": [
-    {
-      "id": 1,
-      "name": "Plane Tickets"
-    },
-    {
-      "id": 2,
-      "name": "Cab"
-    }
-  ]
-}
-```
-
-This end point returns all the line item types for a particular budget category.
-
-### HTTP Request
-
-`GET {{host}}/api/v20/budget_categories/:budget_category_id/line_item_types.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-budget_category_id | yes | Budget category id for which the line item types need to fetched
