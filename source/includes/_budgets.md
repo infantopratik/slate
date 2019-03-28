@@ -510,3 +510,74 @@ Status Code | Description
 201 | When the budget is successfully created
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
+
+## Update Budget
+
+```shell
+curl -X PUT \
+'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "budget": {
+      "name": "National Chess Tournament(Updated Name)",
+      "budget_period_id": 1
+  }
+}'
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "name": "National Chess Tournament(Updated Name)",
+  "budget_period": {
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "ref_no": "REF-1",
+  "status": "in_review",
+  "approved_amount": "0",
+  "spent_amount": "0",
+  "remaining_amount": "0"
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Budget period is locked."
+}
+```
+
+This end point updates a budget.
+
+### HTTP Request
+
+`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budget needs to be updated
+budget_id | yes | Identifier of the budget to be updated
+name | no | Name of the budget
+budget_period_id | no | Identifier of the budget period for which the budget needs to created
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+201 | When the budget is successfully created
+400 | When the required parameters are not sent
+422 | When there are errors while creating the record(Mostly validation errors)
