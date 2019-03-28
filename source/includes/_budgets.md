@@ -438,3 +438,75 @@ Status Code | Description
 ----------- | -----------
 204 | When the budget item is successfully deleted
 404 | When the budget item with the budget_item_id is not found
+
+## Create Budget
+
+```shell
+curl -X POST \
+'https://test.involvio.com/api/v20/groups/1/budgets?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "budget": {
+      "name": "National Chess Tournament",
+      "budget_type_id": 1,
+      "budget_period_id": 1
+  }
+}'
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "name": "National Chess Tournament",
+  "budget_period": {
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "ref_no": "REF-1",
+  "status": "in_review",
+  "approved_amount": "0",
+  "spent_amount": "0",
+  "remaining_amount": "0"
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Budget period is locked."
+}
+```
+
+This end point creates a budget for the specified group.
+
+### HTTP Request
+
+`POST {{host}}/api/v20/groups/:group_id/budgets`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+name | yes | Name of the budget
+group_id | yes | Identifier of the group for which the budget needs to be created
+budget_period_id | yes | Identifier of the budget period for which the budget needs to created
+budget_type_id | yes | Identifier of the budget type, the budget to be created should belong to
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+201 | When the budget is successfully created
+400 | When the required parameters are not sent
+422 | When there are errors while creating the record(Mostly validation errors)
