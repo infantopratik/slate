@@ -581,3 +581,57 @@ Status Code | Description
 201 | When the budget is successfully created
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
+
+
+## Submit Budget
+
+```shell
+curl -X PUT \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/submit?involv_token=example_involvio_token' \
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "name": "National Chess Tournament(Updated Name)",
+  "budget_period": {
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "ref_no": "REF-1",
+  "status": "in_review",
+  "approved_amount": "0",
+  "spent_amount": "0",
+  "remaining_amount": "0"
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Budget is already submitted."
+}
+```
+
+This end point submits a budget. It moves the budget from draft status to review status.
+
+### HTTP Request
+
+`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id/submit`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budget needs to be updated
+budget_id | yes | Identifier of the budget to be updated
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+200 | When the budget is successfully updated
+422 | When there are errors while creating the record(Mostly validation errors)
