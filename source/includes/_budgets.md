@@ -313,3 +313,65 @@ Status Code | Description
 201 | When the line item is successfully created
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
+
+## Create Budget Item
+
+```shell
+curl -X POST \
+'http://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "budget_item": {
+      "name": "Travel Expenses",
+      "budget_category_id": 1,
+  }
+}'
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "name": "Travel Expenses",
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Name too long."
+}
+```
+
+This end point creates a budget item for a particular budget.
+
+### HTTP Request
+
+`POST http://test.involvio.com/api/v20/groups/:group_id/budgets/:budget_id/budget_items`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budget belongs
+budget_id | yes | Identifier of the budget for which the budget item needs to be created
+name | yes | Name of the budget item
+budget_category_id | yes | Identifier of the budget category
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+201 | When the budget item is successfully created
+400 | When the required parameters are not sent
+422 | When there are errors while creating the record(Mostly validation errors)
