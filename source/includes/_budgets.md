@@ -357,13 +357,15 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=
       "id": 1,
       "name": "Winter Budget",
       "start_date": "2019-03-01",
-      "end_date": "2019-07-01"
+      "end_date": "2019-07-01",
+      "locked": true
     },
     {
       "id": 2,
       "name": "Fall Budget",
       "start_date": "2019-08-01",
-      "end_date": "2019-12-01"
+      "end_date": "2019-12-01",
+      "locked": false
     }
   ]
 }
@@ -380,6 +382,7 @@ This end point returns all the budget periods for the campus.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+locked | no | Filter budget periods by locked(true or false)
 
 # Budget Items
 
