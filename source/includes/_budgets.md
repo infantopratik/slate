@@ -1,6 +1,6 @@
 # Budgets
 
-## List of budgets
+## Get budgets
 
 ```shell
 curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_token=example_involvio_token'
@@ -43,151 +43,6 @@ group_id | yes | Identifier of the group for which the budgets need to be fetche
 status | no | Filter by budget status
 budget_period_id | no | Filter by budget period
 
-## List of budget types
-
-```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
-```
-
-> Sample JSON response:
-
-```json
-{
-  "budget_types": [
-    {
-      "id": 1,
-      "name": "Athletics Special Allocation"
-    },
-    {
-      "id": 2,
-      "name": "Greek Special Allocation"
-     }
-  ]
-}
-```
-
-This end point returns all the budget types for the campus.
-
-### HTTP Request
-
-`GET {{host}}/api/v20/budget_types.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-
-## List of budget periods
-
-```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
-```
-
-> Sample JSON response:
-
-```json
-{
-  "budget_periods": [
-    {
-      "id": 1,
-      "name": "Winter Budget",
-      "start_date": "2019-03-01",
-      "end_date": "2019-07-01"
-    },
-    {
-      "id": 2,
-      "name": "Fall Budget",
-      "start_date": "2019-08-01",
-      "end_date": "2019-12-01"
-    },
-  ]
-}
-```
-
-This end point returns all the budget periods for the campus.
-
-### HTTP Request
-
-`GET {{host}}/api/v20/budget_periods.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-
-## List of budget categories
-
-```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
-```
-
-> Sample JSON response:
-
-```json
-{
-  "budget_categories": [
-    {
-      "id": 1,
-      "name": "Travel",
-    },
-    {
-      "id": 2,
-      "name": "Education",
-    },
-  ]
-}
-```
-
-This end point returns all the budget categories for the campus.
-
-### HTTP Request
-
-`GET {{host}}/api/v20/budget_categories.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-
-## List of line item types
-
-```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
-```
-
-> Sample JSON response:
-
-```json
-{
-  "line_item_types": [
-    {
-      "id": 1,
-      "name": "Plane Tickets",
-    },
-    {
-      "id": 2,
-      "name": "Cab",
-    },
-  ]
-}
-```
-
-This end point returns all the line item types for a particular budget category.
-
-### HTTP Request
-
-`GET {{host}}/api/v20/budget_categories/:budget_category_id/line_item_types.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-budget_category_id | yes | Budget category id for which the line item types need to fetched
-
 ## Show budget
 
 ```shell
@@ -226,46 +81,11 @@ involv_token | yes | Involvio access token
 group_id | yes | Identifier of the group for which the budgets need to be fetched
 budget_id | yes | Budget id for which the information needs to be fetched
 
-## Delete budget
+## Submit Budget
 
 ```shell
-curl -X DELETE 'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
-```
-
-This end point deletes the budget.
-
-### HTTP Request
-
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the budgets need to be fetched
-budget_id | yes | Identifier of the budget which needs to be deleted
-
-### Status Codes
-Status Code | Description
------------ | -----------
-204 | When the budget is successfully deleted
-404 | When the budget with the budget_id is not found
-
-## Create Line Item
-
-```shell
-curl -X POST \
-'https://test.involvio.com/api/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
--H "Content-Type: application/json" \
--d '{
-  "line_item": {
-      "description": "Office to Airport",
-      "amount": 100,
-      "budget_item_id": 1,
-      "line_item_type_id": 1
-  }
-}'
+curl -X PUT \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/submit?involv_token=example_involvio_token' \
 ```
 
 > Sample Success Response
@@ -273,110 +93,16 @@ curl -X POST \
 ```json
 {
   "id": 1,
-  "description": "Office to Airport",
-  "amount": 100,
-  "budget_item_id": 1,
-  "line_item_type_id": 1
-}
-```
-
-> Sample Error Response: 400
-
-```json
-{
-  "errors": "One/all of the required parameters are missing."
-}
-```
-
-> Sample Error Response: 422
-
-```json
-{
-  "errors": "Amount cannot be greater than $1000."
-}
-```
-
-This end point creates a line item for a particular budget item.
-
-### HTTP Request
-
-`POST {{host}}/api/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the budgets need to be fetched
-description | yes | Description of the line item
-amount | yes | Amount to be budgeted for this line item
-budget_item_id | yes | Identifier of the budget item for which the line item has to be created
-line_item_type_id | yes | Identifier of the line type for which the line item has to be created
-
-### Status Codes
-Status Code | Description
------------ | -----------
-201 | When the line item is successfully created
-400 | When the required parameters are not sent
-422 | When there are errors while creating the record(Mostly validation errors)
-
-## Delete Line Item
-
-```shell
-curl -X DELETE \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
-```
-
-This end point deletes a line item.
-
-### HTTP Request
-
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the the line item belongs
-budget_id | yes | Identifier of the budget for which the the line item belongs
-budget_item_id | yes | Identifier of the budget item for which the the line item belongs
-line_item_id | yes | Identifier of the line item which needs to be deleted
-
-### Status Codes
-Status Code | Description
------------ | -----------
-204 | When the line item is successfully deleted
-404 | When the line item with the line_item_id is not found
-
-## Create Budget Item
-
-```shell
-curl -X POST \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
--H "Content-Type: application/json" \
--d '{
-  "budget_item": {
-      "name": "Travel Expenses",
-      "budget_category_id": 1,
-  }
-}'
-```
-
-> Sample Success Response
-
-```json
-{
-  "id": 1,
-  "name": "Travel Expenses",
-}
-```
-
-> Sample Error Response: 400
-
-```json
-{
-  "errors": "One/all of the required parameters are missing."
+  "name": "National Chess Tournament(Updated Name)",
+  "budget_period": {
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "ref_no": "REF-1",
+  "status": "in_review",
+  "approved_amount": "0",
+  "spent_amount": "0",
+  "remaining_amount": "0"
 }
 ```
 
@@ -384,60 +110,29 @@ curl -X POST \
 
 ```json
 {
-  "errors": "Name too long."
+  "errors": "Budget is already submitted."
 }
 ```
 
-This end point creates a budget item for a particular budget.
+This end point submits a budget. It moves the budget from draft status to review status.
 
 ### HTTP Request
 
-`POST {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items`
+`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id/submit`
 
 ### Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the budget belongs
-budget_id | yes | Identifier of the budget for which the budget item needs to be created
-name | yes | Name of the budget item
-budget_category_id | yes | Identifier of the budget category
+group_id | yes | Identifier of the group for which the budget needs to be updated
+budget_id | yes | Identifier of the budget to be updated
 
 ### Status Codes
 Status Code | Description
 ----------- | -----------
-201 | When the budget item is successfully created
-400 | When the required parameters are not sent
+200 | When the budget is successfully updated
 422 | When there are errors while creating the record(Mostly validation errors)
-
-## Delete Budget Item
-
-```shell
-curl -X DELETE \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
-```
-
-This end point deletes the budget.
-
-### HTTP Request
-
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
-
-### Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the budget item belongs to
-budget_id | yes | Identifier of the budget for which the budget item belongs to
-budget_item_id | yes | Identifier of the budget item to be deleted
-
-### Status Codes
-Status Code | Description
------------ | -----------
-204 | When the budget item is successfully deleted
-404 | When the budget item with the budget_item_id is not found
 
 ## Create Budget
 
@@ -582,12 +277,124 @@ Status Code | Description
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
 
-
-## Submit Budget
+## Delete budget
 
 ```shell
-curl -X PUT \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/submit?involv_token=example_involvio_token' \
+curl -X DELETE 'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
+```
+
+This end point deletes the budget.
+
+### HTTP Request
+
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
+budget_id | yes | Identifier of the budget which needs to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the budget is successfully deleted
+404 | When the budget with the budget_id is not found
+
+# Budget Types
+
+## Get budget types
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_types": [
+    {
+      "id": 1,
+      "name": "Athletics Special Allocation"
+    },
+    {
+      "id": 2,
+      "name": "Greek Special Allocation"
+     }
+  ]
+}
+```
+
+This end point returns all the budget types for the campus.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/budget_types.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+
+# Budget Periods
+
+## Get budget periods
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_periods": [
+    {
+      "id": 1,
+      "name": "Winter Budget",
+      "start_date": "2019-03-01",
+      "end_date": "2019-07-01"
+    },
+    {
+      "id": 2,
+      "name": "Fall Budget",
+      "start_date": "2019-08-01",
+      "end_date": "2019-12-01"
+    },
+  ]
+}
+```
+
+This end point returns all the budget periods for the campus.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/budget_periods.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+
+# Budget Items
+
+## Create Budget Item
+
+```shell
+curl -X POST \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "budget_item": {
+      "name": "Travel Expenses",
+      "budget_category_id": 1,
+  }
+}'
 ```
 
 > Sample Success Response
@@ -595,16 +402,15 @@ curl -X PUT \
 ```json
 {
   "id": 1,
-  "name": "National Chess Tournament(Updated Name)",
-  "budget_period": {
-    "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
-  },
-  "ref_no": "REF-1",
-  "status": "in_review",
-  "approved_amount": "0",
-  "spent_amount": "0",
-  "remaining_amount": "0"
+  "name": "Travel Expenses",
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
 }
 ```
 
@@ -612,26 +418,231 @@ curl -X PUT \
 
 ```json
 {
-  "errors": "Budget is already submitted."
+  "errors": "Name too long."
 }
 ```
 
-This end point submits a budget. It moves the budget from draft status to review status.
+This end point creates a budget item for a particular budget.
 
 ### HTTP Request
 
-`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id/submit`
+`POST {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items`
 
 ### Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
-group_id | yes | Identifier of the group for which the budget needs to be updated
-budget_id | yes | Identifier of the budget to be updated
+group_id | yes | Identifier of the group for which the budget belongs
+budget_id | yes | Identifier of the budget for which the budget item needs to be created
+name | yes | Name of the budget item
+budget_category_id | yes | Identifier of the budget category
 
 ### Status Codes
 Status Code | Description
 ----------- | -----------
-200 | When the budget is successfully updated
+201 | When the budget item is successfully created
+400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
+
+## Delete Budget Item
+
+```shell
+curl -X DELETE \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
+```
+
+This end point deletes the budget.
+
+### HTTP Request
+
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budget item belongs to
+budget_id | yes | Identifier of the budget for which the budget item belongs to
+budget_item_id | yes | Identifier of the budget item to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the budget item is successfully deleted
+404 | When the budget item with the budget_item_id is not found
+
+# Budget Categories
+
+## Get budget categories
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "budget_categories": [
+    {
+      "id": 1,
+      "name": "Travel",
+    },
+    {
+      "id": 2,
+      "name": "Education",
+    },
+  ]
+}
+```
+
+This end point returns all the budget categories for the campus.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/budget_categories.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+
+# Line Items
+
+## Create Line Item
+
+```shell
+curl -X POST \
+'https://test.involvio.com/api/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
+-H "Content-Type: application/json" \
+-d '{
+  "line_item": {
+      "description": "Office to Airport",
+      "amount": 100,
+      "budget_item_id": 1,
+      "line_item_type_id": 1
+  }
+}'
+```
+
+> Sample Success Response
+
+```json
+{
+  "id": 1,
+  "description": "Office to Airport",
+  "amount": 100,
+  "budget_item_id": 1,
+  "line_item_type_id": 1
+}
+```
+
+> Sample Error Response: 400
+
+```json
+{
+  "errors": "One/all of the required parameters are missing."
+}
+```
+
+> Sample Error Response: 422
+
+```json
+{
+  "errors": "Amount cannot be greater than $1000."
+}
+```
+
+This end point creates a line item for a particular budget item.
+
+### HTTP Request
+
+`POST {{host}}/api/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the budgets need to be fetched
+description | yes | Description of the line item
+amount | yes | Amount to be budgeted for this line item
+budget_item_id | yes | Identifier of the budget item for which the line item has to be created
+line_item_type_id | yes | Identifier of the line type for which the line item has to be created
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+201 | When the line item is successfully created
+400 | When the required parameters are not sent
+422 | When there are errors while creating the record(Mostly validation errors)
+
+## Delete Line Item
+
+```shell
+curl -X DELETE \
+'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
+```
+
+This end point deletes a line item.
+
+### HTTP Request
+
+`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+group_id | yes | Identifier of the group for which the the line item belongs
+budget_id | yes | Identifier of the budget for which the the line item belongs
+budget_item_id | yes | Identifier of the budget item for which the the line item belongs
+line_item_id | yes | Identifier of the line item which needs to be deleted
+
+### Status Codes
+Status Code | Description
+----------- | -----------
+204 | When the line item is successfully deleted
+404 | When the line item with the line_item_id is not found
+
+# Line Item Types
+
+## Get line item types
+
+```shell
+curl -X GET 'https://test.involvio.com/api/v20/budget_categories/1/line_item_types.json?involv_token=example_involvio_token'
+```
+
+> Sample JSON response:
+
+```json
+{
+  "line_item_types": [
+    {
+      "id": 1,
+      "name": "Plane Tickets",
+    },
+    {
+      "id": 2,
+      "name": "Cab",
+    },
+  ]
+}
+```
+
+This end point returns all the line item types for a particular budget category.
+
+### HTTP Request
+
+`GET {{host}}/api/v20/budget_categories/:budget_category_id/line_item_types.json`
+
+### Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+involv_token | yes | Involvio access token
+budget_category_id | yes | Budget category id for which the line item types need to fetched
