@@ -63,15 +63,33 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_to
 {
   "id": 1,
   "name": "Chess Funds",
-  "budget_period": {
-    "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
-  },
   "ref_no": "REF-1",
   "status": "approved",
   "approved_amount": "1000",
   "spent_amount": "200",
-  "remaining_amount": "800"
+  "remaining_amount": "800",
+  "budget_type": "Activities Budget",
+  "budget_period": {
+    "name": "School Year",
+    "start_date": "2019-03-01",
+    "end_date": "2019-12-01"
+  },
+  "budget_items": [
+    {
+      "id": 1,
+      "name": "Travel Expenses",
+      "approved_amount": 100,
+      "spent_amount": 50,
+      "remaining_amount": 50
+    },
+    {
+      "id": 2,
+      "name": "Food Expenses",
+      "approved_amount": 100,
+      "spent_amount": 50,
+      "remaining_amount": 50
+    }
+  ]
 }
 ```
 
@@ -429,11 +447,17 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items.j
   "budget_items": [
     {
       "id": 1,
-      "name": "Travel Expenses"
+      "name": "Travel Expenses",
+      "approved_amount": 100,
+      "spent_amount": 50,
+      "remaining_amount": 50
     },
     {
       "id": 2,
-      "name": "Food Expenses"
+      "name": "Food Expenses",
+      "approved_amount": 100,
+      "spent_amount": 50,
+      "remaining_amount": 50
     }
   ]
 }
@@ -474,7 +498,10 @@ curl -X POST \
 ```json
 {
   "id": 1,
-  "name": "Travel Expenses"
+  "name": "Travel Expenses",
+  "approved_amount": 0,
+  "spent_amount": 0,
+  "remaining_amount": 0
 }
 ```
 
