@@ -10,6 +10,12 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "budgets": [
     {
       "id": 1,
@@ -42,6 +48,8 @@ involv_token | yes | Involvio access token
 group_id | yes | Identifier of the group for which the budgets need to be fetched
 status | no | Filter by budget status
 budget_period_id | no | Filter by budget period
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 ## Show budget
 
@@ -315,6 +323,12 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=ex
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "budget_types": [
     {
       "id": 1,
@@ -323,7 +337,7 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=ex
     {
       "id": 2,
       "name": "Greek Special Allocation"
-     }
+    }
   ]
 }
 ```
@@ -339,6 +353,8 @@ This end point returns all the budget types for the campus.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 # Budget Periods
 
@@ -352,6 +368,12 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "budget_periods": [
     {
       "id": 1,
@@ -383,6 +405,8 @@ Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
 locked | no | Filter budget periods by locked(true or false)
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 # Budget Items
 
@@ -396,6 +420,12 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items.j
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "budget_items": [
     {
       "id": 1,
@@ -422,6 +452,8 @@ Parameter | Required | Description
 involv_token | yes | Involvio access token
 group_id | yes | Identifier of the group to which the budget belongs
 budget_id | yes | Identifier of the budget for which the budget items to be fetched
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 ## Create Budget Item
 
@@ -525,6 +557,12 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_tok
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "budget_categories": [
     {
       "id": 1,
@@ -569,6 +607,8 @@ This end point returns all the budget categories for the campus.
 Parameter | Required | Description
 --------- | -------- | -----------
 involv_token | yes | Involvio access token
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 # Line Items
 
@@ -582,6 +622,12 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1
 
 ```json
 {
+  "pagination_data": {
+    "total_pages": 1,
+    "per_page": 30,
+    "total_entries": 1,
+    "current_page": 1
+  },
   "line_items": [
     {
       "id": 1,
@@ -608,6 +654,8 @@ involv_token | yes | Involvio access token
 group_id | yes | Identifier of the group to which the budget belongs
 budget_id | yes | Identifier of the budget for which the budget items to be fetched
 budget_item_id | yes | Identifier of the group for which the line items needs to be fetched
+page | no | Get budgets for this page
+per_page | no | Specifies how many items to be returned for each page
 
 ## Create Line Item
 
