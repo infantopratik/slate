@@ -60,7 +60,7 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
 }
 ```
 
-This end point returns all the budgets for the campus ordered by budget period start date desc and budget name ascending.
+This end point returns all the budgets for the campus ordered by locked(unlocked first), budget period start date descending, budget name ascending.
 
 ### HTTP Request
 
