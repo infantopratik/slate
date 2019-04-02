@@ -13,28 +13,54 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
   "pagination_data": {
     "total_pages": 1,
     "per_page": 30,
-    "total_entries": 1,
+    "total_entries": 3,
     "current_page": 1
   },
   "budgets": [
     {
-      "id": 1,
+      "id": 10,
+      "name": "Badminton Funds",
+      "budget_period": {
+        "start_date": "2019-03-01",
+        "end_date": "2019-12-01"
+      },
+      "ref_no": "REF-10",
+      "status": "approved",
+      "approved_amount": "1000",
+      "spent_amount": "200",
+      "remaining_amount": "800"
+    },
+    {
+      "id": 5,
       "name": "Chess Funds",
       "budget_period": {
         "start_date": "2019-03-01",
         "end_date": "2019-12-01"
       },
-      "ref_no": "REF-1",
+      "ref_no": "REF-5",
       "status": "approved",
       "approved_amount": "1000",
       "spent_amount": "200",
       "remaining_amount": "800"
-    }
+    },
+    {
+       "id": 12,
+       "name": "Tennis Funds",
+       "budget_period": {
+         "start_date": "2019-01-01",
+         "end_date": "2019-02-28"
+       },
+       "ref_no": "REF-12",
+       "status": "approved",
+       "approved_amount": "1000",
+       "spent_amount": "200",
+       "remaining_amount": "800"
+     }
   ]
 }
 ```
 
-This end point returns all the budgets for the campus.
+This end point returns all the budgets for the campus ordered by budget period start date desc and budget name ascending.
 
 ### HTTP Request
 
