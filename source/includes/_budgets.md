@@ -386,7 +386,7 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=ex
 }
 ```
 
-This end point returns all the budget types for the campus.
+This end point returns all the enabled budget types for the campus in ascending order of name.
 
 ### HTTP Request
 
