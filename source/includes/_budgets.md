@@ -244,6 +244,14 @@ curl -X POST \
 }
 ```
 
+> Sample Error Response: 404
+
+```json
+{
+  "errors": "List not found"
+}
+```
+
 > Sample Error Response: 422
 
 ```json
@@ -273,6 +281,7 @@ Status Code | Description
 ----------- | -----------
 201 | When the budget is successfully created
 400 | When the required parameters are not sent
+404 | When the group_id/budget_period_id/budget_type_id is not found
 422 | When there are errors while creating the record(Mostly validation errors)
 
 ## Update Budget
