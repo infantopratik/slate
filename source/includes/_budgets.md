@@ -3,7 +3,7 @@
 ## Get budgets
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/groups/1/budgets.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -73,7 +73,7 @@ This end point returns all the budgets for the campus ordered by locked(unlocked
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/groups/:group_id/budgets.json`
+`GET {{host}}/v20/groups/:group_id/budgets.json`
 
 ### Parameters
 
@@ -89,7 +89,7 @@ per_page | no | Specifies how many items to be returned for each page
 ## Show budget
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/groups/1/budgets/1.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -134,7 +134,7 @@ This end point returns all the information for the budget.
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
+`GET {{host}}/v20/groups/:group_id/budgets/:budget_id.json`
 
 ### Parameters
 
@@ -148,7 +148,7 @@ budget_id | yes | Budget id for which the information needs to be fetched
 
 ```shell
 curl -X PUT \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/submit?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budgets/1/submit?involv_token=example_involvio_token' \
 ```
 
 > Sample Success Response
@@ -184,7 +184,7 @@ This end point submits a budget. It moves the budget from draft status to review
 
 ### HTTP Request
 
-`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id/submit`
+`PUT {{host}}/v20/groups/:group_id/budgets/:budget_id/submit`
 
 ### Parameters
 
@@ -204,7 +204,7 @@ Status Code | Description
 
 ```shell
 curl -X POST \
-'https://test.involvio.com/api/v20/groups/1/budgets?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budgets?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "budget": {
@@ -256,7 +256,7 @@ This end point creates a budget for the specified group.
 
 ### HTTP Request
 
-`POST {{host}}/api/v20/groups/:group_id/budgets`
+`POST {{host}}/v20/groups/:group_id/budgets`
 
 ### Parameters
 
@@ -279,7 +279,7 @@ Status Code | Description
 
 ```shell
 curl -X PUT \
-'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budgets/1?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "budget": {
@@ -327,7 +327,7 @@ This end point updates a budget.
 
 ### HTTP Request
 
-`PUT {{host}}/api/v20/groups/:group_id/budgets/:budget_id`
+`PUT {{host}}/v20/groups/:group_id/budgets/:budget_id`
 
 ### Parameters
 
@@ -349,14 +349,14 @@ Status Code | Description
 ## Delete budget
 
 ```shell
-curl -X DELETE 'https://test.involvio.com/api/v20/groups/1/budgets/1?involv_token=example_involvio_token'
+curl -X DELETE 'https://test.involvio.com/v20/groups/1/budgets/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id.json`
+`DELETE {{host}}/v20/groups/:group_id/budgets/:budget_id.json`
 
 ### Parameters
 
@@ -377,7 +377,7 @@ Status Code | Description
 ## Get budget types
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_types.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/budget_types.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -407,7 +407,7 @@ This end point returns all the enabled budget types for the campus in ascending 
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/budget_types.json`
+`GET {{host}}/v20/budget_types.json`
 
 ### Parameters
 
@@ -422,7 +422,7 @@ per_page | no | Specifies how many items to be returned for each page
 ## Get budget periods
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/budget_periods.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -458,7 +458,7 @@ This end point returns all the budget periods for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/budget_periods.json`
+`GET {{host}}/v20/budget_periods.json`
 
 ### Parameters
 
@@ -474,7 +474,7 @@ per_page | no | Specifies how many items to be returned for each page
 ## Get budget items
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/groups/1/budgets/1/budget_items.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -510,7 +510,7 @@ This end point returns all the budget items for a particular budget.
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items.json`
+`GET {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items.json`
 
 ### Parameters
 
@@ -526,7 +526,7 @@ per_page | no | Specifies how many items to be returned for each page
 
 ```shell
 curl -X POST \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budgets/1/budget_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "budget_item": {
@@ -568,7 +568,7 @@ This end point creates a budget item for a particular budget.
 
 ### HTTP Request
 
-`POST {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items`
+`POST {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items`
 
 ### Parameters
 
@@ -591,14 +591,14 @@ Status Code | Description
 
 ```shell
 curl -X DELETE \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
+'https://test.involvio.com/v20/groups/1/budgets/1/budget_items/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes the budget.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
+`DELETE {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id`
 
 ### Parameters
 
@@ -620,7 +620,7 @@ Status Code | Description
 ## Get budget categories
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/budget_categories.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/budget_categories.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -670,7 +670,7 @@ This end point returns all the budget categories for the campus.
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/budget_categories.json`
+`GET {{host}}/v20/budget_categories.json`
 
 ### Parameters
 
@@ -685,7 +685,7 @@ per_page | no | Specifies how many items to be returned for each page
 ## Get line items
 
 ```shell
-curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items.json?involv_token=example_involvio_token'
+curl -X GET 'https://test.involvio.com/v20/groups/1/budgets/1/budget_items/1/line_items.json?involv_token=example_involvio_token'
 ```
 
 > Sample JSON response:
@@ -714,7 +714,7 @@ This end point returns all the line items for a particular budget item.
 
 ### HTTP Request
 
-`GET {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items.json`
+`GET {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items.json`
 
 ### Parameters
 
@@ -731,7 +731,7 @@ per_page | no | Specifies how many items to be returned for each page
 
 ```shell
 curl -X POST \
-'https://test.involvio.com/api/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "line_item": {
@@ -775,7 +775,7 @@ This end point creates a line item for a particular budget item.
 
 ### HTTP Request
 
-`POST {{host}}/api/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
+`POST {{host}}/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
 
 ### Parameters
 
@@ -799,14 +799,14 @@ Status Code | Description
 
 ```shell
 curl -X DELETE \
-'https://test.involvio.com/api/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
+'https://test.involvio.com/v20/groups/1/budgets/1/budget_items/1/line_items/1?involv_token=example_involvio_token'
 ```
 
 This end point deletes a line item.
 
 ### HTTP Request
 
-`DELETE {{host}}/api/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
+`DELETE {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items/:line_item_id`
 
 ### Parameters
 
