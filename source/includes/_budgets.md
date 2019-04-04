@@ -21,8 +21,11 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
       "id": 10,
       "name": "Badminton Funds",
       "budget_period": {
+        "id": 1,
+        "name": "Summer",
         "start_date": "2019-03-01",
-        "end_date": "2019-12-01"
+        "end_date": "2019-12-01",
+        "is_locked": true
       },
       "ref_no": "REF-10",
       "status": "approved",
@@ -34,8 +37,11 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
       "id": 5,
       "name": "Chess Funds",
       "budget_period": {
+        "id": 2,
+        "name": "Winter",
         "start_date": "2019-03-01",
-        "end_date": "2019-12-01"
+        "end_date": "2019-12-01",
+        "is_locked": true
       },
       "ref_no": "REF-5",
       "status": "approved",
@@ -47,8 +53,11 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets.json?involv_toke
        "id": 12,
        "name": "Tennis Funds",
        "budget_period": {
+         "id": 3,
+         "name": "Fall",
          "start_date": "2019-01-01",
-         "end_date": "2019-02-28"
+         "end_date": "2019-02-28",
+         "is_locked": true
        },
        "ref_no": "REF-12",
        "status": "approved",
@@ -96,9 +105,11 @@ curl -X GET 'https://test.involvio.com/api/v20/groups/1/budgets/1.json?involv_to
   "remaining_amount": "800",
   "budget_type": "Activities Budget",
   "budget_period": {
+    "id": 3,
     "name": "School Year",
     "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
+    "end_date": "2019-12-01",
+    "is_locked": true
   },
   "budget_items": [
     {
@@ -147,8 +158,11 @@ curl -X PUT \
   "id": 1,
   "name": "National Chess Tournament(Updated Name)",
   "budget_period": {
+    "id": 3,
+    "name": "School Year",
     "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
+    "end_date": "2019-12-01",
+    "is_locked": false
   },
   "ref_no": "REF-1",
   "status": "in_review",
@@ -208,8 +222,11 @@ curl -X POST \
   "id": 1,
   "name": "National Chess Tournament",
   "budget_period": {
+    "id": 3,
+    "name": "School Year",
     "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
+    "end_date": "2019-12-01",
+    "is_locked": false
   },
   "ref_no": "REF-1",
   "status": "in_review",
@@ -424,14 +441,14 @@ curl -X GET 'https://test.involvio.com/api/v20/budget_periods.json?involv_token=
       "name": "Winter Budget",
       "start_date": "2019-03-01",
       "end_date": "2019-07-01",
-      "locked": true
+      "is_locked": true
     },
     {
       "id": 2,
       "name": "Fall Budget",
       "start_date": "2019-08-01",
       "end_date": "2019-12-01",
-      "locked": false
+      "is_locked": false
     }
   ]
 }
