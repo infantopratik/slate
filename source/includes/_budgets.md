@@ -240,7 +240,7 @@ curl -X POST \
 
 ```json
 {
-  "errors": "One/all of the required parameters are missing."
+  "errors": "Some of the parameters are missing or their value is empty"
 }
 ```
 
@@ -311,7 +311,7 @@ curl -X PUT \
 
 ```json
 {
-  "errors": "One/all of the required parameters are missing."
+  "errors": "Some of the parameters are missing or their value is empty"
 }
 ```
 
@@ -552,7 +552,7 @@ curl -X POST \
 
 ```json
 {
-  "errors": "One/all of the required parameters are missing."
+  "errors": "Some of the parameters are missing or their value is empty"
 }
 ```
 
@@ -759,7 +759,7 @@ curl -X POST \
 
 ```json
 {
-  "errors": "One/all of the required parameters are missing."
+  "errors": "Some of the parameters are missing or their value is empty"
 }
 ```
 
