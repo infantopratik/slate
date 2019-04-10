@@ -740,7 +740,7 @@ per_page | no | Specifies how many items to be returned for each page
 
 ```shell
 curl -X POST \
-'https://test.involvio.com/v20/groups/1/budget_items/1/line_items?involv_token=example_involvio_token' \
+'https://test.involvio.com/v20/groups/1/budgets/1/budget_items/1/line_items?involv_token=example_involvio_token' \
 -H "Content-Type: application/json" \
 -d '{
   "line_item": {
@@ -781,7 +781,7 @@ This end point creates a line item for a particular budget item.
 
 ### HTTP Request
 
-`POST {{host}}/v20/groups/:group_id/budget_items/:budget_item_id/line_item.json`
+`POST {{host}}/v20/groups/:group_id/budgets/:budget_id/budget_items/:budget_item_id/line_items`
 
 ### Parameters
 
@@ -791,6 +791,7 @@ involv_token | yes | Involvio access token
 group_id | yes | Identifier of the group for which the budgets need to be fetched
 description | yes | Description of the line item
 amount | yes | Amount to be budgeted for this line item
+budget_id | yes | Identifier of the budget for which the budget item has to to be created
 budget_item_id | yes | Identifier of the budget item for which the line item has to be created
 line_item_type_id | yes | Identifier of the line type for which the line item has to be created
 
