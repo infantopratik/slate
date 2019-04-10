@@ -298,24 +298,6 @@ curl -X PUT \
 }'
 ```
 
-> Sample Success Response
-
-```json
-{
-  "id": 1,
-  "name": "National Chess Tournament(Updated Name)",
-  "budget_period": {
-    "start_date": "2019-03-01",
-    "end_date": "2019-12-01"
-  },
-  "ref_no": "REF-1",
-  "status": "in_review",
-  "approved_amount": "0",
-  "spent_amount": "0",
-  "remaining_amount": "0"
-}
-```
-
 > Sample Error Response: 400
 
 ```json
@@ -351,7 +333,7 @@ budget_period_id | no | Identifier of the budget period for which the budget nee
 ### Status Codes
 Status Code | Description
 ----------- | -----------
-201 | When the budget is successfully created
+204 | When the budget is successfully updated
 400 | When the required parameters are not sent
 422 | When there are errors while creating the record(Mostly validation errors)
 
