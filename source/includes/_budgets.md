@@ -746,7 +746,6 @@ curl -X POST \
   "line_item": {
       "description": "Office to Airport",
       "amount": 100,
-      "budget_item_id": 1,
       "line_item_type_id": 1
   }
 }'
@@ -758,9 +757,7 @@ curl -X POST \
 {
   "id": 1,
   "description": "Office to Airport",
-  "amount": 100,
-  "budget_item_id": 1,
-  "line_item_type_id": 1
+  "amount": 100
 }
 ```
 
